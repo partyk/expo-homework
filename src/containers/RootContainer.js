@@ -44,7 +44,7 @@ export default class RootContainer extends React.PureComponent<null> {
                 <Header idnes={this.state.idnes} />
                 <ScrollView style={styles.scrollView}>
                     <Button
-                        title={`Přepni záhlaví na ${this.state.idnes ? "iDnes.cz" : "Lidovky.cz"} `}
+                        title={`Přepni záhlaví na ${this.state.idnes ? "Lidovky.cz" : "iDnes.cz"} `}
                         onPress={this._changeHeader}
                     />
                     <Text>Show header: {this.state.idnes ? "Lidovky.cz" : "iDnes.cz"}</Text>
