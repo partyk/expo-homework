@@ -14,27 +14,53 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         paddingBottom: 15,
         backgroundColor:'#F00'
-    },
-    logo: {
-        width:100,
-        height:23
     }
 });
 
 export default class Header extends React.PureComponent<Props> {
 
-    state = {
-        isShowingText: true
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data : [
+                {
+                    name: 'iDNES.cz',
+                    logo: 'https://1gr.cz/m/o/logo-idnes-white.png',
+                    style: {
+                        backgroundColor: '#F00',
+                        width: 100,
+                        height: 23
+                    },
+                },
+                {
+                    name: 'Lidovky.cz',
+                    logo: 'https://1gr.cz/o/lidovky_ln5/m/ln-logo173.png',
+                    style: {
+                        width: 137,
+                        height: 23
+                    }
+                }
+            ]
+        };
     }
 
-    _onPressLogo() {
-        alert('iDNES.cz – s námi víte víc');
-    }
+    _onPressLogo = () => {
+        alert(`${this.state.data[this.props.idnes ? 0 : 1].name} – s námi víte víc`);
+    };
+
+    _styleHeader = () => {
+        return styles.wrapper;
+    };
+
     render() {
         return (
-            <View style={styles.wrapper}>
+            <View style={this._styleHeader()}>
                 <TouchableHighlight onPress={this._onPressLogo}>
-                    <Image source={{ uri: this.props.logo }} style={styles.logo} />
+                    <Image
+                        source={{ uri: this.state.data[this.props.idnes ? 0 : 1].logo }}
+                        style={this.state.data[this.props.idnes ? 0 : 1].style}
+                    />
                 </TouchableHighlight>
             </View>
         )

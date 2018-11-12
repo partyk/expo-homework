@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     borderRadius: Metrics.buttons.height / 2,
     justifyContent: 'center',
   },
-})
+});
 
 type Props = {|
   +onPress: () => void,

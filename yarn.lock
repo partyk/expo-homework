@@ -446,10 +446,11 @@
     pouchdb-collections "^1.0.1"
     tiny-queue "^0.2.1"
 
-"@mafra/eslint-config-standard@https://github.com/partyk/mafra-standard":
-  version "1.3.0"
-  resolved "https://github.com/partyk/mafra-standard#378f1eca8a5f0e333a735cd525c38565431dbe39"
+"@partyk/eslint-config-standard@https://github.com/partyk/eslint-config-standart":
+  version "1.4.1"
+  resolved "https://github.com/partyk/eslint-config-standart#68bbfed1c168cde7b87b4c4c88e8e3147983b450"
   dependencies:
+    babel-eslint "^10.0.1"
     standard "^12.0.1"
 
 abab@^2.0.0:
