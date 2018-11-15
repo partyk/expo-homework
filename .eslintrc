@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
   "extends": [
-    "@partyk/eslint-config-standard",
+    "airbnb",
     "plugin:flowtype/recommended",
     "prettier",
     "prettier/flowtype",
