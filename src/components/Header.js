@@ -55,7 +55,7 @@ export default class Header extends React.PureComponent<Props> {
 
     render() {
         return (
-            <View style={this._styleHeader()}>
+            <View style={[styles.wrapper,{backgroundColor:"red"}]}>
                 <TouchableHighlight onPress={this._onPressLogo}>
                     <Image
                         source={{ uri: this.state.data[this.props.idnes ? 0 : 1].logo }}
