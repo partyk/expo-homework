@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button secondary renders correctly 1`] = `
+exports[`Button primary renders correctly 1`] = `
 <View
   accessible={true}
   isTVSelectable={true}
@@ -13,7 +13,7 @@ exports[`Button secondary renders correctly 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#0badde",
+      "backgroundColor": "#cc517a",
       "borderRadius": 5,
       "height": 46,
       "justifyContent": "center",
@@ -34,11 +34,14 @@ exports[`Button secondary renders correctly 1`] = `
           "color": "#FFF",
           "fontSize": 16,
         },
-        undefined,
+        Object {
+          "color": "#FFF",
+          "fontSize": 16,
+        },
       ]
     }
   >
-    Button secondary
+    Button primary
   </Text>
 </View>
 `;
