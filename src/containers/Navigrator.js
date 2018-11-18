@@ -1,6 +1,7 @@
-import {createStackNavigator} from "react-navigation";
-import RootContainer from "./RootContainer";
-import StyleGuideContainer from "./StyleGuideContainer";
+import {createStackNavigator} from 'react-navigation';
+import RootContainer from './RootContainer';
+import StyleGuideContainer from './StyleGuideContainer';
+import HomeWork3 from  './HomeWork3';
 
 export default createStackNavigator({
     Home: {
@@ -9,4 +10,7 @@ export default createStackNavigator({
     StyleGuide: {
         screen: StyleGuideContainer,
     },
+    HomeWork3: {
+        screen: HomeWork3
+    }
 });

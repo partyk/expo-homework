@@ -1,17 +1,9 @@
 // @flow
 import React from 'react'
-import {Text, SafeAreaView, StyleSheet} from 'react-native'
 
 // components
-import {Section, Button} from '../components'
-import {Colors, ButtonThemes} from '../themes'
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: Colors.background,
-    },
-});
+import {SafeAreaView, Section, Button} from '../components'
+import {ButtonThemes} from '../themes'
 
 export default class StyleGuideContainer extends React.PureComponent<Props> {
     static navigationOptions = {
@@ -28,7 +20,7 @@ export default class StyleGuideContainer extends React.PureComponent<Props> {
 
     render() {
         return (
-            <SafeAreaView style={styles.container}>
+            <SafeAreaView>
                 <Section>
                     <Button
                         theme={ButtonThemes.primary}

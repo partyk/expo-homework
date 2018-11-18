@@ -1,17 +1,9 @@
 // @flow
 import React from 'react'
-import {Image, StyleSheet} from 'react-native'
 
 // components
 import {SafeAreaView, Section, LogoTitle, Button} from '../components'
-import {Colors, ButtonThemes} from '../themes'
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: Colors.background,
-    },
-});
+import {ButtonThemes} from '../themes'
 
 export default class RootContainer extends React.PureComponent<Props> {
 
@@ -34,6 +26,12 @@ export default class RootContainer extends React.PureComponent<Props> {
                         }}
                         theme={ButtonThemes.primary}
                     >Style guide</Button>
+                    <Button
+                        onPress={() => {
+                            this.props.navigation.navigate("HomeWork3")
+                        }}
+                        theme={{}}
+                    >Home work (FlatList)</Button>
                 </Section>
             </SafeAreaView>
         )
