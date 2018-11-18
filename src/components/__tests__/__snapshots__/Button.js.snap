@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Button secondary renders correctly 1`] = `
 <View
   accessible={true}
   isTVSelectable={true}
@@ -13,14 +13,14 @@ exports[`renders correctly 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderColor": "rgb(24,202,167)",
-      "borderRadius": 42,
-      "borderWidth": 2,
-      "height": 84,
+      "backgroundColor": "#0badde",
+      "borderRadius": 5,
+      "height": 46,
       "justifyContent": "center",
+      "marginBottom": 10,
       "opacity": 1,
-      "width": 84,
+      "paddingHorizontal": 10,
+      "paddingVertical": 10,
     }
   }
 >
@@ -28,8 +28,60 @@ exports[`renders correctly 1`] = `
     accessible={true}
     allowFontScaling={true}
     ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#FFF",
+          "fontSize": 16,
+        },
+        undefined,
+      ]
+    }
   >
-    Ahoj
+    Button secondary
+  </Text>
+</View>
+`;
+
+exports[`Button secondary renders correctly 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#0badde",
+      "borderRadius": 5,
+      "height": 46,
+      "justifyContent": "center",
+      "marginBottom": 10,
+      "opacity": 1,
+      "paddingHorizontal": 10,
+      "paddingVertical": 10,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#FFF",
+          "fontSize": 16,
+        },
+        undefined,
+      ]
+    }
+  >
+    Button secondary
   </Text>
 </View>
 `;
