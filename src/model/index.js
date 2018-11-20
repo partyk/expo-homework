@@ -1,0 +1,1 @@
+export CategoryModel from './CategoryModel';
