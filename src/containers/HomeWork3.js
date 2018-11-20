@@ -2,10 +2,9 @@
 import React from 'react'
 import {Text, FlatList} from "react-native";
 import {CategoryModel} from '../model';
-import {Button} from '../components';
 
 // components
-import {SafeAreaView, Section} from '../components';
+import {SafeAreaView, Section, Button} from '../components';
 
 export default class HomeWork3 extends React.PureComponent<Props> {
     static navigationOptions = {
