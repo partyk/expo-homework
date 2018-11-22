@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import {Text, FlatList} from "react-native";
-import {CategoryModel} from '../model';
+import {loadMovies} from '../model/Api';
 
 // components
 import {SafeAreaView, Section, Button} from '../components';
@@ -17,29 +17,28 @@ export default class HomeWork3 extends React.PureComponent<Props> {
     };
 
     state = {
-        listCategories : [{}]
+        movies: []
     };
 
-    componentWillMount() {
-        const data = CategoryModel.getCategories();
-        data.then((result) => {
+    componentDidMount() {
+        loadMovies().then(response => {
             this.setState({
-                listCategories: result.data
-            });
-        });
+                movies: response.data.results
+            })
+        })
     }
+
 
     _keyExtractor = (item, index) => item.id;
 
     render() {
-        const { listCategories } = this.state;
+        const {movies} = this.state;
         return (
             <SafeAreaView>
                 <Section>
                     <FlatList
-                        data={listCategories}
-                        renderItem={({item}) => <Button onPress={() => { alert(`Call: ${item.name}`); }} theme={{}}>{item.name}</Button>}
-                        // renderItem={({item}) => <Text key={item.id}>{item.name}</Text>}
+                        data={movies}
+                        renderItem={({item}) => <Text key={item.id}>{item.title}</Text>}
                         keyExtractor={this._keyExtractor}
                     />
                 </Section>
