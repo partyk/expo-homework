@@ -10,6 +10,9 @@
   "plugins": ["react", "jsx-a11y", "import"],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/prefer-stateless-function": "off"
+    "react/prefer-stateless-function": "off",
+    "react/destructuring-assignment": [1, "always", { "ignoreClassFields": true }],
+    "no-underscore-dangle": [0, { "allow": ["_bar"] }],
+    "linebreak-style": [0, "windows"]
   }
 }

@@ -28,10 +28,10 @@ export default class RootContainer extends React.PureComponent<Props> {
                     >Style guide</Button>
                     <Button
                         onPress={() => {
-                            this.props.navigation.navigate("HomeWork3")
+                            this.props.navigation.navigate("HomeWork")
                         }}
                         theme={{}}
-                    >Home work (FlatList)</Button>
+                    >Home work</Button>
                 </Section>
             </SafeAreaView>
         )

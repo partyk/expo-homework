@@ -1,13 +1,11 @@
 // @flow
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import Expo from 'expo'
+import React from "react"
 
 // containers
-import Navigator from "./src/containers/Navigrator";
+import Navigator from "./src/containers/Navigrator"
 
 export default class App extends React.PureComponent<null> {
-    render() {
-        return <Navigator />
-    }
+  render() {
+    return <Navigator/>
+  }
 }
