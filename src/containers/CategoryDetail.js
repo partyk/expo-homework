@@ -8,23 +8,29 @@ import { SafeAreaView, Section } from "../components"
 import { getCategoryId, getAds } from "../Api";
 
 export default class CategoryDetail extends React.PureComponent<Props> {
-  static navigationOptions = ({ navigation }) => ({
-    headerStyle: {
-      backgroundColor: "#F00",
-    },
-    headerTintColor: "#fff",
-    headerTitle: navigation.state.params.headerTitle,
-  });
+
+    static navigationOptions = ({ navigation, navigationOptions }) => {
+        const { params } = navigation.state;
+
+        return {
+            title: params ? params.name : 'Detail',
+            headerStyle: {
+                backgroundColor: "#F00",
+            },
+            headerTintColor: "#fff",
+        };
+    };
 
   state = {
     listAds: [],
   }
 
   componentDidMount () {
-    this._getTitle();
+    //this._getTitle();
     this._getData();
   }
 
+  // smazat
   _getTitle = () => {
     this.props.navigation.setParams({ headerTitle: this.props.navigation.getParam("name", "") });
   }
