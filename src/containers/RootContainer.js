@@ -1,5 +1,6 @@
 // @flow
-import React from 'react'
+import React from 'react';
+import Expo from 'expo';
 
 // components
 import {SafeAreaView, Section, LogoTitle, Button} from '../components'

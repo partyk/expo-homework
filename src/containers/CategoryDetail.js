@@ -1,72 +1,92 @@
 // @flow
 import React from "react"
-import { Text, FlatList } from "react-native"
+import { FlatList, Text } from "react-native"
+// redux
+import { connect } from "react-redux"
+import { onToggleFavorite } from "../redux/CategoryDetailRedux";
 
 // components
-import { SafeAreaView, Section } from "../components"
+import { Button, SafeAreaView, Section } from "../components"
+
 // data
-import { getCategoryId, getAds } from "../Api";
+import { getAds } from "../Api"
 
-export default class CategoryDetail extends React.PureComponent<Props> {
+class CategoryDetail extends React.PureComponent<Props> {
 
-    static navigationOptions = ({ navigation, navigationOptions }) => {
-        const { params } = navigation.state;
+  static navigationOptions = ({ navigation, navigationOptions }) => {
+    const { params } = navigation.state
 
-        return {
-            title: params ? params.name : 'Detail',
-            headerStyle: {
-                backgroundColor: "#F00",
-            },
-            headerTintColor: "#fff",
-        };
-    };
+    return {
+      title: params ? params.name : "Detail",
+      headerStyle: {
+        backgroundColor: "#F00",
+      },
+      headerTintColor: "#fff",
+    }
+  }
 
   state = {
     listAds: [],
   }
 
-  componentDidMount () {
-    //this._getTitle();
-    this._getData();
-  }
-
-  // smazat
-  _getTitle = () => {
-    this.props.navigation.setParams({ headerTitle: this.props.navigation.getParam("name", "") });
+  componentDidMount() {
+    this._getData()
   }
 
   _getData = () => {
-    getCategoryId(this.props.navigation.getParam("id", 0)).then(result => {
-      console.log(result);
-    });
-    getAds(this.props.navigation.getParam("id", 0)).then(result => {
+    getAds(this.props.navigation.getParam("categoryId", 0)).then(result => {
       this.setState({
-        listAds: result.data
+        listAds: result.data,
       })
-      console.log(result);
-    });
+      // console.log(result)
+    })
   }
 
-  _keyExtractor = (item) => item.id;
+  _keyExtractor = (item) => item.id
 
   render() {
-    const { listAds } = this.state;
-    const { navigation } = this.props;
+    const { listAds } = this.state
+    const { navigation, onToggleFavorite, isMovieFavorite } = this.props
+    const { categoryId } = navigation.state.params;
     return (
       <SafeAreaView>
         <Section>
-          <Text>ID: {navigation.getParam("id", 0)}</Text>
-          <FlatList
-            data={listAds}
-            keyExtractor={this._keyExtractor}
-            renderItem={({item}) => {
-              return (
-                <Text>{item.title}</Text>
-              )
+          <Text>ID: {categoryId}</Text>
+          <Button
+            onPress={() => {
+              onToggleFavorite(categoryId);
             }}
-          />
+            theme={{}}
+          >
+            {isMovieFavorite ? "Odebrat z oblíbených" : "Přidat do oblíbených"}
+          </Button>
         </Section>
+        <FlatList
+          data={listAds}
+          keyExtractor={this._keyExtractor}
+          renderItem={({ item }) => {
+            return (
+              <Text>{item.title}</Text>
+            )
+          }}
+        />
       </SafeAreaView>
     )
   }
 };
+
+const mapDispatchToProps = {
+  onToggleFavorite,
+}
+
+const mapStateToProps = (state, props) => {
+  const { categoryId } = props.navigation.state.params
+  return {
+    isMovieFavorite: state.categoryDetail.favorites.indexOf(categoryId) > -1,
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(CategoryDetail);

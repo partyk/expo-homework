@@ -1,11 +1,19 @@
 // @flow
 import React from "react"
-import { FlatList } from "react-native"
+import { FlatList, StyleSheet } from "react-native"
 
 // components
-import { SafeAreaView, Section, Button } from "../components"
+import { SafeAreaView, Button } from "../components"
+
+// style
+import {Section as StyleSection} from "../themes"
+
 // data
 import { getCategories } from "../Api"
+
+const styles = StyleSheet.create({
+  section: StyleSection.primary
+});
 
 export default class CategoriesList extends React.PureComponent<Props> {
   static navigationOptions = {
@@ -40,20 +48,21 @@ export default class CategoriesList extends React.PureComponent<Props> {
     const { navigation } = this.props;
     return (
       <SafeAreaView>
-        <Section>
-          <FlatList
-            data={listCategories}
-            renderItem={({ item }) => <Button onPress={() => {
-              console.log(item);
-              navigation.navigate("CategoryDetail", {
-                id: item.id,
-                name: item.name
-              });
-            }} theme={{}}>{item.name}</Button>}
-            // renderItem={({item}) => <Text key={item.id}>{item.name}</Text>}
-            keyExtractor={this._keyExtractor}
-          />
-        </Section>
+        <FlatList
+          data={listCategories}
+          style={styles.section}
+          renderItem={({ item }) => <Button onPress={() => {
+            console.log(item);
+            navigation.navigate("CategoryDetail", {
+              categoryId: item.id,
+              name: item.name
+            });
+          }}
+          theme={{}}
+          >{item.name}</Button>}
+          // renderItem={({item}) => <Text key={item.id}>{item.name}</Text>}
+          keyExtractor={this._keyExtractor}
+        />
       </SafeAreaView>
     )
   }

@@ -1,11 +1,11 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
+// styles
+import {Section as StyleSection} from "../themes";
+
 const styles = StyleSheet.create({
-    section: {
-        paddingTop: 10,
-        paddingHorizontal: 10
-    }
+    section: StyleSection.primary
 });
 
 export default class Section extends React.PureComponent<Props> {
