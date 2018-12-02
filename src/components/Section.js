@@ -2,10 +2,10 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
 // styles
-import {Section as StyleSection} from "../themes";
+import {SectionThemes} from "../themes";
 
 const styles = StyleSheet.create({
-    section: StyleSection.primary
+    section: SectionThemes.primary
 });
 
 export default class Section extends React.PureComponent<Props> {

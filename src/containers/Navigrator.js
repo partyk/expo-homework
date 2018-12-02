@@ -4,6 +4,7 @@ import StyleGuideContainer from "./StyleGuideContainer";
 import HomeWork from "./HomeWork";
 import CategoriesList from "./CategoriesList";
 import CategoryDetail from "./CategoryDetail";
+import Filter from "./Filter";
 import TabNavigator from "./TabNavigator";
 
 const HomeNavigator = createStackNavigator({
@@ -27,6 +28,9 @@ const HomeWorkNavigator = createStackNavigator({
   },
   CategoryDetail: {
     screen: CategoryDetail
+  },
+  Filter: {
+    screen: Filter
   }
 })
 

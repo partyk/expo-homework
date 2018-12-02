@@ -1,6 +1,6 @@
 export Colors from './Colors';
 export Metrics from './Metrics';
-export Section from './Section';
 
 // styleGuide
+export SectionThemes from './SectionThemes';
 export ButtonThemes from './ButtonThemes';

@@ -3,16 +3,16 @@ import React from "react"
 import { FlatList, StyleSheet } from "react-native"
 
 // components
-import { SafeAreaView, Button } from "../components"
+import { SafeAreaView, Button, Section } from "../components"
 
 // style
-import {Section as StyleSection} from "../themes"
+import {SectionThemes, ButtonThemes} from "../themes"
 
 // data
 import { getCategories } from "../Api"
 
 const styles = StyleSheet.create({
-  section: StyleSection.primary
+  section: SectionThemes.secondary
 });
 
 export default class CategoriesList extends React.PureComponent<Props> {
@@ -48,6 +48,16 @@ export default class CategoriesList extends React.PureComponent<Props> {
     const { navigation } = this.props;
     return (
       <SafeAreaView>
+        <Section>
+          <Button
+            onPress={() => {
+              navigation.navigate("Filter")
+            }}
+            theme={ButtonThemes.primary}
+            >
+            Filtr
+          </Button>
+        </Section>
         <FlatList
           data={listCategories}
           style={styles.section}
